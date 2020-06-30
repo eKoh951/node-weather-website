@@ -16,7 +16,10 @@ weatherForm.addEventListener('submit', (e)=> {
     msgOne.textContent = 'Loading data...'
     msgTwo.textContent = ''
     const location = search.value
-    fetch('http://localhost:3000/weather?address=' + location).then((response) => {
+    // http://localhost:3000... would be for an absolute path
+    //   / by leaving only the foward slash we are setting this up to a relative path
+    //   so the scrinpt can run both locally and in production
+    fetch('/weather?address=' + location).then((response) => {
         response.json().then((data) => {
             if(data.error) msgOne.textContent = data.error
             else{
