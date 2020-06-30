@@ -7,7 +7,7 @@ const forecast = require('./utils/forecast')
 // The || 3000 is what is called a "fallback value"
 //   so, in case the first value (process.env.PORT) is not available
 //   the value for port is going to be 3000, meaning that we are working locally
-const port = process.evn.PORT || 3000
+const port = process.env.PORT || 3000
 
 // Shorthands
 const log = console.log
@@ -119,5 +119,5 @@ app.get('*', (req, res) => {
 })
 
 app.listen(port, () => {
-    console.log('Server is up on port' + port)
+    console.log('Server is up on port ' + port)
 })
